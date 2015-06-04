@@ -1,0 +1,15 @@
+baseurl = "http://myblog-965.appspot.com"
+languageCode = "en-us"
+MetaDataFormat = "yaml"
+title = "Aprendiendo de Go"
+author = "Gabriel Pozo"
+
+[params]
+    author_name = "Gabriel Pozo"
+    twitter_username = "jackgris2"
+    gravatar_id = "eeff3312ae9bffb79eadcc494a80362d"
+
+[permalinks]
+  post = "/:year/:month/:day/:slug/"
+  english = "/:year/:month/:day/:slug/"
+
