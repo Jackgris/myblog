@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://localhost:1313//stylesheets/shiori.css">
+    <link href='//fonts.googleapis.com/css?family=Montserrat:700,400' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Merriweather:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="shortcut icon" href="http://localhost:1313//favicon.ico">
+    <title>comenzando con go | Aprendiendo de Go</title>
+    
+    
+
+  </head>
+  <body>
+    <div class="navbar navbar-inverse navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <div class="navbar-toggle-wrapper visible-xs">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".js-navbar-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          </div>
+          <a href="http://localhost:1313/" class="navbar-brand">Aprendiendo de Go</a>
+        </div>
+        <div class="collapse navbar-collapse js-navbar-collapse">
+          <ul class="navbar-nav nav">
+            <li><a href="http://localhost:1313/post">Archive</a></li>
+
+          </ul>
+          <ul class="navbar-nav nav navbar-right">
+            <li class="hidden-xs"><iframe src="http://ghbtns.com/github-btn.html?user=Jackgris&repo=myblog&type=watch&count=true&size=large"
+  allowtransparency="true" frameborder="0" scrolling="0" width="170" height="30" style="margin-top: 14px;"></iframe>
+</li>
+
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+
+<div class="row">
+  <div class="col-sm-8">
+    <div class="post-header">
+      <h1 class="post-title-main">comenzando con go</h1>
+      <p class="text-muted">Jun 11, 2015</p>
+
+    </div>
+    <div class="post-content">
+      
+
+<h2 id="comenzando-con-go:e75475e03852d4f1d2ff4a3d86652a30">Comenzando con Go!</h2>
+
+<p>Hola a todos, en este post les vengo a hablar de un lenguaje nuevo, con el que hace un tiempo estoy haciendo algunas cosas, y mientras estoy agarrando experiencia con el mismo, cada vez me gusta mas.</p>
+
+<h3 id="datos-generales:e75475e03852d4f1d2ff4a3d86652a30">Datos Generales:</h3>
+
+<p>Go es un lenguaje de programación concurrente y compilado inspirado en la sintaxis de C.</p>
+
+<p>Go es un nuevo lenguaje de programación para sistemas lanzado por Google en Noviembre del 2009. Aunque empezó a ser desarrollado en Septiembre del 2007 por Robert Griesemer, Rob Pike y Ken Thompson.</p>
+
+<h3 id="características:e75475e03852d4f1d2ff4a3d86652a30">Características:</h3>
+
+<p>Go es un lenguaje de programación compilado, concurrente, imperativo, estructurado, no orientado a objetos —de una manera bastante especial— y con recolector de basura que de momento está soportado en diferentes tipos de sistemas UNIX, incluidos Linux, FreeBSD y Mac OS X. También está disponible en Plan 9 puesto que parte del compilador está basado en un trabajo previo sobre el sistema operativo Inferno. Las arquitecturas soportadas son i386, amd64 y ARM</p>
+
+<p>Go usa una sintaxis parecida a C por lo que los programadores que hayan usado dicho lenguaje se sienten muy cómodos con él.
+Go usa tipado estático (estatically typed) y es tan eficiente como C.
+Go tiene muchas de las características y facilidad de lenguajes dinámicos como Python
+Aún siendo un lenguaje diseñado para la programación de sistemas, provee de un recolector de basura, reflexión y otras capacidades de alto nivel que lo convierten en un lenguaje muy potente.
+Go no está orientado a objetos porque no existe jerarquía de tipos pero implementa interfaces.</p>
+
+<p>Esta última característica, me parece realmente interesante, además de que la sintaxis muy parecida a la de Python realmente me atrae. A que voy con eso Go admite la tipificación dinámica de datos también conocida como duck Typing presente en multitud de lenguajes dinámicos como por ejemplo JavaScript, Ruby o Python. Un struct puede implementar una interfaz de forma automática, lo cual es una característica potente y novedosa.
+Una de las cosas que lo hacen un excelente lenguaje concurrente es que tiene algo que no son ni threads, ni co-rutinas ni procesos. La comunicación entre goroutines se realiza a través de una característica del lenguaje llamada canales —basada en CSP—, que es más segura y fácil de usar que los sistemas predominantes basados en bloqueos de pthreads o características modernas de Java</p>
+
+<p>Esto si que es llamativo, el tema de las excepciones:
+Go no tiene excepciones. Los creadores del lenguaje dan varios motivos para que esto sea así. Uno de ellos es que añadir una capa de excepciones añade una complejidad innecesaria al lenguaje y al entorno de ejecución. Por definición deberían de ser excepcionales pero al final se acaban usando como controladores del flujo de la aplicación y dejan de tener nada de excepcional. Según los creadores, las excepciones tienen que ser realmente excepcionales y el uso que se le da mayoritariamente no justifica su existencia.</p>
+
+<h3 id="es-go-un-lenguaje-orientado-a-objetos:e75475e03852d4f1d2ff4a3d86652a30">¿Es Go un lenguaje orientado a objetos?</h3>
+
+<p>Bueno, esta no es una pregunta fácil de responder. Digamos que si y no. Go tiene tipos y métodos y permite un estilo de programación orientado a objetos pero no existe una jerarquía de objetos, por lo tanto, no existe la herencia. En Go, el concepto de “interfaz“ diferente que los creadores creen es fácil de usar y en muchos sentidos es más general. También existen formas de embeber tipos dentro de otros tipos para obtener algo análogo a las subclases. Los métodos de Go son más generales que los de C++ o Java, pueden ser definidos para cualquier tipo de datos no solo para los structs.
+La ausencia de jerarquía de tipos en Go, hace que los “objetos“ den una sensación de ser más ligeros que en lenguajes como C++ o Java.</p>
+
+<h3 id="instalación-de-nuestro-entorno-de-desarrollo:e75475e03852d4f1d2ff4a3d86652a30">Instalación de nuestro entorno de desarrollo:</h3>
+
+<p>En un sistema operativo Linux nos descargamos el archivo comprimido correspondiente a nuestro sistema operativo y arquitectura de acá:
+<a href="https://code.google.com/p/go/downloads/list">https://code.google.com/p/go/downloads/list</a></p>
+
+<p>Luego de eso simplemente descomprimimos el archivo en esta ubicación:</p>
+
+<pre><code>tar -C /usr/local -xzf go1.1.linux-amd64.tar.gz
+</code></pre>
+
+<p>Para ello vamos a necesitar permisos de root, y al terminar de descomprimirlo, para poder utilizarlo de manera cómoda, vamos a agregarlo a nuestro path, escribiendo en el archivo .bashrc de nuestro home, o en /etc/profile  la siguiente línea:</p>
+
+<pre><code>export PATH=$PATH:/usr/local/go/bin
+</code></pre>
+
+<h3 id="ver-documentación-oficial:e75475e03852d4f1d2ff4a3d86652a30">Ver documentación oficial:</h3>
+
+<p><a href="http://golang.org/doc/install">http://golang.org/doc/install</a></p>
+
+<h3 id="nuestro-hola-mundo-d:e75475e03852d4f1d2ff4a3d86652a30">Nuestro Hola Mundo :D</h3>
+
+<p>Para probar que la instalación salió correctamente vamos a crear un archivo con extensión .go por ejemplo hola.go, y dentro del mismo escribimos el siguiente código:</p>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main(){
+    fmt.Printf(&quot;Comenzando con GO!\n&quot;)
+}
+</code></pre>
+
+<p>Luego desde la consola, tipeamos (si tenemos todo correctamente instalado, y configurado nuestro PATH, y situados en donde se encuentra el archivo que creamos recién ):</p>
+
+<pre><code>go run hola.go
+</code></pre>
+
+<p>Y nuestra salida en la consola deberá ser la siguiente:</p>
+
+<pre><code>Comenzando con GO!
+</code></pre>
+
+<p>Si es así, tenemos todo correctamente para comenzar con este interesante lenguaje ;)</p>
+
+<h3 id="recomendación:e75475e03852d4f1d2ff4a3d86652a30">Recomendación:</h3>
+
+<p>Para trabajar con este lenguaje es muy recomendable configurar la variable de entorno llamada $GOPATH ;) esto nos va a servir para poder utilizar algunas herramientas como go get, para poder descargar librerías y que las instale y compile automáticamente ;)
+Para eso deberemos crear una carpeta donde Go va a poder descargar el código fuente y creara los binarios, para seo podemos crear una carpeta de esta forma:</p>
+
+<p>mkdir $HOME/go</p>
+
+<p>Y para que nos resulte mucho más comodo agregar esto como lo hicimos antes a nuestro archivo .bashrc o bash_profile</p>
+
+<p>export GOPATH=$HOME/go</p>
+
+<p>Y también es muy util agregar la carpeta bin dentro de nuesto $GOPATH a nuestro $PATH</p>
+
+<p>$ export PATH=$PATH:$GOPATH/bin</p>
+
+<p>Para poder utilizar las herramientas en nuestra terminal de forma mucho mas cómoda.</p>
+
+<p>Web Oficial
+<a href="http://golang.org/">http://golang.org/</a></p>
+
+<p>Ver por lo de la licencia
+<a href="http://golang.org/project/">http://golang.org/project/</a></p>
+
+<p>Bueno, eso es todo por ahora, espero que les allá gustado el post, creo que el aprender de este lenguaje puede ser muy interesante, sobre todo porque es apoyado totalmente por google, donde se esta migrando mucho de su código en C++ hacia este lenguaje, y ademas hay muchas empresas mas, como por ejemplo Modzilla <a href="https://github.com/mozilla-services/heka">https://github.com/mozilla-services/heka</a>
+Espero que les allá gustado el post, por supuesto que vamos a interiorizarnos más sobre el tema, además en algún momento, combinarlo con algún proyecto Android.</p>
+
+    </div>
+    <div class="post-footer">
+      <a href="http://localhost:1313/post" class="btn btn-primary btn-block btn-lg">View All 3 Articles →</a>
+
+    </div>
+    
+  </div>
+  <div class="col-sm-4">
+    <h3>
+  Author
+</h3>
+
+<p>
+  <div class="media">
+    <img src="http://www.gravatar.com/avatar/eeff3312ae9bffb79eadcc494a80362d?s=100" alt="Gabriel Pozo" class="pull-left">
+    <div class="media-body">
+      <h4 class="media-heading">Gabriel Pozo</h4>
+    </div>
+  </div>
+</p>
+
+<p><a href="https://twitter.com/jackgris2" class="twitter-follow-button" data-show-screen-name="false" data-show-count="true" data-dnt="true" data-size="large">Follow @jackgris2</a></p>
+
+  </div>
+</div>
+      <div class="row footer">
+        <div class="col-sm-12 text-center">
+          &copy; 2015.
+Built with <a href="http://gohugo.io/">Hugo</a> and
+<a href="https://github.com/chibicode/hugo-theme-shiori">Shiori Theme</a>.
+
+        </div>
+      </div>
+    </div>
+    <script src="http://localhost:1313/javascripts/shiori.js"></script>
+    
+
+
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+  </body>
+</html>
+

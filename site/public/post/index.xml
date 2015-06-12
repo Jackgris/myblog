@@ -6,30 +6,122 @@
     <description>Recent content in Posts on Aprendiendo de Go</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 03 Jun 2015 23:36:54 -0300</lastBuildDate>
+    <lastBuildDate>Thu, 11 Jul 2013 23:19:26 -0300</lastBuildDate>
     <atom:link href="http://myblog-965.appspot.com/post/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>second</title>
-      <link>http://myblog-965.appspot.com/2015/06/03/second/</link>
-      <pubDate>Wed, 03 Jun 2015 23:36:54 -0300</pubDate>
+      <title>Comenzando con Go</title>
+      <link>http://myblog-965.appspot.com/2013/07/11/comenzando-con-go/</link>
+      <pubDate>Thu, 11 Jul 2013 23:19:26 -0300</pubDate>
       
-      <guid>http://myblog-965.appspot.com/2015/06/03/second/</guid>
+      <guid>http://myblog-965.appspot.com/2013/07/11/comenzando-con-go/</guid>
       <description>
 
-&lt;h2 id=&#34;a-headline:9f7936f9b5c071ae81db818b80a44a0d&#34;&gt;A headline&lt;/h2&gt;
+&lt;p&gt;Hola a todos, en este post les vengo a hablar de un lenguaje nuevo, con el que hace un tiempo estoy haciendo algunas cosas, y mientras estoy agarrando experiencia con el mismo, cada vez me gusta mas.&lt;/p&gt;
 
-&lt;p&gt;Some Content&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>first</title>
-      <link>http://myblog-965.appspot.com/2015/06/02/first/</link>
-      <pubDate>Tue, 02 Jun 2015 23:18:39 -0300</pubDate>
-      
-      <guid>http://myblog-965.appspot.com/2015/06/02/first/</guid>
-      <description>&lt;p&gt;Esto es una prueba&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://myblog-965.appspot.com/2013/07/golang-post1.jpg?raw=true&#34; alt=&#34;Logo de Go&#34; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;datos-generales:e75475e03852d4f1d2ff4a3d86652a30&#34;&gt;Datos generales:&lt;/h3&gt;
+
+&lt;p&gt;Go es un lenguaje de programación concurrente y compilado inspirado en la sintaxis de C.&lt;/p&gt;
+
+&lt;p&gt;Go es un nuevo lenguaje de programación para sistemas lanzado por Google en Noviembre del 2009. Aunque empezó a ser desarrollado en Septiembre del 2007 por Robert Griesemer, Rob Pike y Ken Thompson.&lt;/p&gt;
+
+&lt;h3 id=&#34;características:e75475e03852d4f1d2ff4a3d86652a30&#34;&gt;Características:&lt;/h3&gt;
+
+&lt;p&gt;Go es un lenguaje de programación compilado, concurrente, imperativo, estructurado, no orientado a objetos —de una manera bastante especial— y con recolector de basura que de momento está soportado en diferentes tipos de sistemas UNIX, incluidos Linux, FreeBSD y Mac OS X. También está disponible en Plan 9 puesto que parte del compilador está basado en un trabajo previo sobre el sistema operativo Inferno. Las arquitecturas soportadas son i386, amd64 y ARM&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Go usa una sintaxis parecida a C por lo que los programadores que hayan usado dicho lenguaje se sienten muy cómodos con él.&lt;/li&gt;
+&lt;li&gt;Go usa tipado estático (estatically typed) y es tan eficiente como C.&lt;/li&gt;
+&lt;li&gt;Go tiene muchas de las características y facilidad de lenguajes dinámicos como Python&lt;/li&gt;
+&lt;li&gt;Aún siendo un lenguaje diseñado para la programación de sistemas, provee de un recolector de basura, reflexión y otras capacidades de alto nivel que lo convierten en un lenguaje muy potente.&lt;/li&gt;
+&lt;li&gt;Go no está orientado a objetos porque no existe jerarquía de tipos pero implementa interfaces.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Esta última característica, me parece realmente interesante, además de que la sintaxis muy parecida a la de Python realmente me atrae. A que voy con eso Go admite la tipificación dinámica de datos también conocida como duck Typing presente en multitud de lenguajes dinámicos como por ejemplo JavaScript, Ruby o Python. Un struct puede implementar una interfaz de forma automática, lo cual es una característica potente y novedosa.
+Una de las cosas que lo hacen un excelente lenguaje concurrente es que tiene algo que no son ni threads, ni co-rutinas ni procesos. La comunicación entre goroutines se realiza a través de una característica del lenguaje llamada canales —basada en CSP—, que es más segura y fácil de usar que los sistemas predominantes basados en bloqueos de pthreads o características modernas de Java&lt;/p&gt;
+
+&lt;p&gt;Esto si que es llamativo, el tema de las excepciones:
+Go no tiene excepciones. Los creadores del lenguaje dan varios motivos para que esto sea así. Uno de ellos es que añadir una capa de excepciones añade una complejidad innecesaria al lenguaje y al entorno de ejecución. Por definición deberían de ser excepcionales pero al final se acaban usando como controladores del flujo de la aplicación y dejan de tener nada de excepcional. Según los creadores, las excepciones tienen que ser realmente excepcionales y el uso que se le da mayoritariamente no justifica su existencia.&lt;/p&gt;
+
+&lt;h3 id=&#34;es-go-un-lenguaje-orientado-a-objetos:e75475e03852d4f1d2ff4a3d86652a30&#34;&gt;¿Es Go un lenguaje orientado a objetos?&lt;/h3&gt;
+
+&lt;p&gt;Bueno, esta no es una pregunta fácil de responder. Digamos que si y no. Go tiene tipos y métodos y permite un estilo de programación orientado a objetos pero no existe una jerarquía de objetos, por lo tanto, no existe la herencia. En Go, el concepto de “interfaz“ diferente que los creadores creen es fácil de usar y en muchos sentidos es más general. También existen formas de embeber tipos dentro de otros tipos para obtener algo análogo a las subclases. Los métodos de Go son más generales que los de C++ o Java, pueden ser definidos para cualquier tipo de datos no solo para los structs.
+La ausencia de jerarquía de tipos en Go, hace que los “objetos“ den una sensación de ser más ligeros que en lenguajes como C++ o Java.&lt;/p&gt;
+
+&lt;h3 id=&#34;instalación-de-nuestro-entorno-de-desarrollo:e75475e03852d4f1d2ff4a3d86652a30&#34;&gt;Instalación de nuestro entorno de desarrollo:&lt;/h3&gt;
+
+&lt;p&gt;En un sistema operativo Linux nos descargamos el archivo comprimido correspondiente a nuestro sistema operativo y arquitectura de acá:
+&lt;a href=&#34;https://golang.org/dl/&#34;&gt;https://golang.org/dl/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Luego de eso simplemente descomprimimos el archivo en esta ubicación:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;tar -C /usr/local -xzf go1.1.linux-amd64.tar.gz
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Para ello vamos a necesitar permisos de root, y al terminar de descomprimirlo, para poder utilizarlo de manera cómoda, vamos a agregarlo a nuestro path, escribiendo en el archivo .bashrc de nuestro home, o en /etc/profile  la siguiente línea:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;export PATH=$PATH:/usr/local/go/bin
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;ver-documentación-oficial:e75475e03852d4f1d2ff4a3d86652a30&#34;&gt;Ver documentación oficial:&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://golang.org/doc/install&#34;&gt;http://golang.org/doc/install&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;hola-mundo-d:e75475e03852d4f1d2ff4a3d86652a30&#34;&gt;Hola Mundo :D&lt;/h3&gt;
+
+&lt;p&gt;Para probar que la instalación salió correctamente vamos a crear un archivo con extensión .go por ejemplo hola.go, y dentro del mismo escribimos el siguiente código:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;package main
+
+import &amp;quot;fmt&amp;quot;
+
+func main(){
+    fmt.Printf(&amp;quot;Comenzando con GO!\n&amp;quot;)
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Luego desde la consola, tipeamos (si tenemos todo correctamente instalado, y configurado nuestro PATH, y situados en donde se encuentra el archivo que creamos recién ):&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;go run hola.go
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Y nuestra salida en la consola deberá ser la siguiente:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Comenzando con GO!
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Si es así, tenemos todo correctamente para comenzar con este interesante lenguaje ;)&lt;/p&gt;
+
+&lt;h3 id=&#34;recomendación:e75475e03852d4f1d2ff4a3d86652a30&#34;&gt;Recomendación:&lt;/h3&gt;
+
+&lt;p&gt;Para trabajar con este lenguaje es muy recomendable configurar la variable de entorno llamada $GOPATH ;) esto nos va a servir para poder utilizar algunas herramientas como go get, para poder descargar librerías y que las instale y compile automáticamente ;)
+Para eso deberemos crear una carpeta donde Go va a poder descargar el código fuente y creara los binarios, para seo podemos crear una carpeta de esta forma:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;mkdir $HOME/go
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Y para que nos resulte mucho más comodo agregar esto como lo hicimos antes a nuestro archivo .bashrc o bash_profile&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;export GOPATH=$HOME/go
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Y también es muy util agregar la carpeta bin dentro de nuesto $GOPATH a nuestro $PATH&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ export PATH=$PATH:$GOPATH/bin
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Para poder utilizar las herramientas en nuestra terminal de forma mucho mas cómoda.&lt;/p&gt;
+
+&lt;p&gt;Web Oficial
+&lt;a href=&#34;http://golang.org/&#34;&gt;http://golang.org/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Ver por lo de la licencia
+&lt;a href=&#34;http://golang.org/project/&#34;&gt;http://golang.org/project/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Bueno, eso es todo por ahora, espero que les allá gustado el post, creo que el aprender de este lenguaje puede ser muy interesante, sobre todo porque es apoyado totalmente por google, donde se esta migrando mucho de su código en C++ hacia este lenguaje, y ademas hay muchas empresas mas, como por ejemplo Modzilla &lt;a href=&#34;https://github.com/mozilla-services/heka&#34;&gt;https://github.com/mozilla-services/heka&lt;/a&gt;
+Espero que les allá gustado el post, por supuesto que vamos a interiorizarnos más sobre el tema, además en algún momento, combinarlo con algún proyecto Android.&lt;/p&gt;
 </description>
     </item>
     
