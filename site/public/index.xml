@@ -19,6 +19,109 @@
     </item>
     
     <item>
+      <title>Lenguaje Go, variables y licencia</title>
+      <link>http://myblog-965.appspot.com/2013/07/20/lenguaje-go-variables-y-licencia/</link>
+      <pubDate>Sat, 20 Jul 2013 09:36:49 -0300</pubDate>
+      
+      <guid>http://myblog-965.appspot.com/2013/07/20/lenguaje-go-variables-y-licencia/</guid>
+      <description>
+
+&lt;p&gt;Hola a todos nuevamente, como dije anteriormente, este nuevo lenguaje, me está gustando cada vez más, así que voy a continuar con otro post sobre el.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://myblog-965.appspot.com/2013/07/appenginegophercolor.jpg?raw=true&#34; alt=&#34;Logo de Go&#34; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;la-licencia:37b96b20dbfb14c39ef15f1f29e03bdc&#34;&gt;La licencia&lt;/h3&gt;
+
+&lt;p&gt;Un tema muy importante, y de la cual creo que vamos a poder aprender mucho sobre como programar en general,
+es que los que contribuyeron código al mismo, además de haber muchos ingenieros de Google, entre ellos están personas como Robert Griesemer,
+Rob Pike y Ken Thompson. Y al estar licenciado bajo la licencia BSD, nos podemos bajar todo el código de acá:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://code.google.com/p/go/source/checkout&#34;&gt;https://code.google.com/p/go/source/checkout&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Donde vamos a poder revisarlo, ver los commit que cada uno aportó, y de esta manera, ver los estilos de cada uno.
+Lo cual creo que es una excelente fuente de apredizaje.
+Desde este enlace, vamos a poder ver los cambios que fue recibiendo cada release:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://golang.org/doc/devel/release.html&#34;&gt;http://golang.org/doc/devel/release.html&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;También con el siguiente enlace vas a poder unirte a la lista de desarrolladores del mismo, a comunidades y demás:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://golang.org/project/&#34;&gt;http://golang.org/project/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Ahora si, vamos a ver un poco de código ;)&lt;/p&gt;
+
+&lt;h3 id=&#34;un-poco-de-la-estructura:37b96b20dbfb14c39ef15f1f29e03bdc&#34;&gt;Un poco de la estructura&lt;/h3&gt;
+
+&lt;p&gt;Bueno vamos a arrancar bien por lo básico, como en el anterior post, vamos a crear un archivo que se llame, &lt;code&gt;hola.go&lt;/code&gt; para ver como funciona la cosa :D
+en el mismo vamos a incluir el siguiente código.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;package main
+
+import &amp;quot;fmt&amp;quot;
+
+func main() {
+    fmt.Printf(&amp;quot;Hola lenguaje Go!\n&amp;quot;)
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Un archivo de código fuente consiste básicamente en tres partes, la primera como podrán ver es la sentencia &lt;code&gt;package&lt;/code&gt;,
+el código en Go! esta dispuesto en &lt;code&gt;packages&lt;/code&gt; que cumplen ambos roles, el de librerías y el de &lt;code&gt;headers&lt;/code&gt; en &lt;code&gt;C&lt;/code&gt;
+El paquete en este ejemplo se llama &lt;code&gt;main&lt;/code&gt;, el cual al igual que en &lt;code&gt;C&lt;/code&gt; es un nombre especial, ya que todo programa escrito
+en este lenguaje debe contener un package main y un método &lt;code&gt;main()&lt;/code&gt;, el cual va a ser el punto de entrada de nuestro programa.
+La siguiente sección &lt;code&gt;import&lt;/code&gt; es la que se encarga de especificar qué paquetes va a usar nuestro programa, y como vamos a importarlos,
+en este caso vamos a importar &lt;code&gt;fmt&lt;/code&gt;, una vez que lo hayamos realizado, vamos a poder utilizar cualquiera de los tipos, variables, constantes y funciones,
+anteponiendo el nombre del paquete, en este caso vamos a usar el método &lt;code&gt;Printf()&lt;/code&gt; del paquete &lt;code&gt;fmt&lt;/code&gt;.
+El cual nos va a dar la salida en la terminal con la string que le pasamos.&lt;/p&gt;
+
+&lt;p&gt;A pesar de que &lt;code&gt;Go&lt;/code&gt; utiliza compilación estática, es importante tener en cuenta que las declaraciones de importación son mucho más cercanas a las
+de &lt;code&gt;Java&lt;/code&gt; o &lt;code&gt;Python&lt;/code&gt; que las directivas de inclusiones en &lt;code&gt;C&lt;/code&gt;. Ellas no lo hacen incluir el código fuente en la unidad de compilación actual.
+Pero a diferencia de los paquetes de &lt;code&gt;Java&lt;/code&gt; y &lt;code&gt;Python&lt;/code&gt;, en &lt;code&gt;Go&lt;/code&gt; los paquetes se importan cuando el código es vinculado, y no cuando se ejecuta.
+Esto nos asegura que nuestra aplicación no fallará debido a la falta paquete en el sistema.
+El tema de los paquetes son más importantes en &lt;code&gt;Go&lt;/code&gt; que en lenguajes como &lt;code&gt;Java&lt;/code&gt;, porque &lt;code&gt;Go&lt;/code&gt; solo provee control de acceso a paquetes y no a clases.&lt;/p&gt;
+
+&lt;p&gt;Al importar un paquete también podríamos realizar cosas como estas:
+&lt;code&gt;import format &amp;quot;fmt&amp;quot;&lt;/code&gt;
+Donde renombramos el paquete y lo podríamos llamar format en nuestro código, aunque normalmente es muy mala idea usarla,
+ya que hacemos más difícil la lectura a otra persona de nuestro código y solo deberemos usarlo si necesitamos separar dos paquetes con el mismo nombre.
+Con este tipo de &lt;code&gt;import&lt;/code&gt; terminarían llamando al mismo método de la siguiente manera: &lt;code&gt;format.Printf(&amp;quot;&amp;quot;)&lt;/code&gt; y no &lt;code&gt;fmt.Printf(&amp;quot;&amp;quot;)&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;vamos-a-declarar-variables:37b96b20dbfb14c39ef15f1f29e03bdc&#34;&gt;Vamos a declarar variables&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;var i int
+var Θ  float32
+var explicitly, typed, pointers *complex128
+
+intPointer := &amp;amp;i
+anotherInt pointer := new(int)
+genericChannel := make(chan interface{})
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Las variables vamos a declararlas con la palabra reservada &lt;code&gt;var&lt;/code&gt; seguido del nombre y despues del tipo por ej: int, float32, etc.
+Como pueden ver también una de las variables fue declarada con el nombre Θ, esto es posible porque &lt;code&gt;Go&lt;/code&gt; permite como identificador cualquier
+símbolo que tiene la codificación &lt;code&gt;Unicode&lt;/code&gt;, de todas maneras no es bueno abusar de ello, porque pueden haber símbolos complicados de encontrar
+en el teclado y  uno de los únicos motivos para usarlos debería ser para simbología en matemática o similar.
+Otra cosa, como pueden ver en los ejemplos, tenemos dos formas de declarar una variable, de la que hablamos recién es la forma larga,
+la cual en realidad no vamos a tener que usar tan comúnmente, una de las claves de escribir buen código es el &lt;code&gt;principio del alcance mínimo&lt;/code&gt;,
+esto quiere decir que deberíamos buscar el alcance mínimo de nuestras variables.
+Con las declaraciones largas, tendríamos variables por fuera de los metodos, básicamente el alcance de las mismas sería el de nuestro archivo,
+en cambio para un alcance corto dentro de nuestro métodos tenemos el operador &lt;code&gt;:=&lt;/code&gt; como se ve en un ejemplo: &lt;code&gt;intPointer := &amp;amp;i&lt;/code&gt;
+(en este ejemplo también se puede ver el uso de punteros con el operador &lt;code&gt;&amp;amp;&lt;/code&gt;, el cual nos recordará seguramente a &lt;code&gt;C&lt;/code&gt;,
+aunque el valor de retorno funciona de manera similar al pasaje por referencia de &lt;code&gt;Java&lt;/code&gt;)
+Todavía hay más elementos sobre la inicialización de variables, pero los vamos a ir viendo en próximos post ;)&lt;/p&gt;
+
+&lt;h3 id=&#34;web-oficial:37b96b20dbfb14c39ef15f1f29e03bdc&#34;&gt;Web Oficial&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://golang.org/&#34;&gt;http://golang.org/&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;licencia:37b96b20dbfb14c39ef15f1f29e03bdc&#34;&gt;Licencia&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://golang.org/project/&#34;&gt;http://golang.org/project/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Bueno eso es todo por este post, de a poco seguiremos viendo como es la sintaxis en este lenguaje, para poder programar de manera correcta con el.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Comenzando con Go</title>
       <link>http://myblog-965.appspot.com/2013/07/11/comenzando-con-go/</link>
       <pubDate>Thu, 11 Jul 2013 23:19:26 -0300</pubDate>
