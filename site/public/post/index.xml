@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Aprendiendo de Go</title>
-    <link>http://myblog-965.appspot.com/post/</link>
+    <link>http://myblog-965.appspot.com:1313/post/</link>
     <description>Recent content in Posts on Aprendiendo de Go</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 16 Jul 2013 12:37:48 -0300</lastBuildDate>
-    <atom:link href="http://myblog-965.appspot.com/post/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://myblog-965.appspot.com:1313/post/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Lenguaje Go funciones y bucles</title>
-      <link>http://myblog-965.appspot.com/2013/07/16/lenguaje-go-funciones-y-bucles/</link>
+      <link>http://myblog-965.appspot.com:1313/2013/07/16/lenguaje-go-funciones-y-bucles/</link>
       <pubDate>Tue, 16 Jul 2013 12:37:48 -0300</pubDate>
       
-      <guid>http://myblog-965.appspot.com/2013/07/16/lenguaje-go-funciones-y-bucles/</guid>
+      <guid>http://myblog-965.appspot.com:1313/2013/07/16/lenguaje-go-funciones-y-bucles/</guid>
       <description>
 
 &lt;p&gt;Hola a todos, nuevamente otro post de este lenguaje llamado Go!, en este caso vamos a ver un tema fundamental en la programación,
@@ -118,10 +118,10 @@ en la sintaxis que me recuerda a &lt;code&gt;Python&lt;/code&gt;, cosa que me gu
     
     <item>
       <title>Lenguaje Go, variables y licencia</title>
-      <link>http://myblog-965.appspot.com/2013/06/20/lenguaje-go-variables-y-licencia/</link>
+      <link>http://myblog-965.appspot.com:1313/2013/06/20/lenguaje-go-variables-y-licencia/</link>
       <pubDate>Thu, 20 Jun 2013 09:36:49 -0300</pubDate>
       
-      <guid>http://myblog-965.appspot.com/2013/06/20/lenguaje-go-variables-y-licencia/</guid>
+      <guid>http://myblog-965.appspot.com:1313/2013/06/20/lenguaje-go-variables-y-licencia/</guid>
       <description>
 
 &lt;p&gt;Hola a todos nuevamente, como dije anteriormente, este nuevo lenguaje, me está gustando cada vez más, así que voy a continuar con otro post sobre el.&lt;/p&gt;
@@ -221,10 +221,10 @@ Todavía hay más elementos sobre la inicialización de variables, pero los vamo
     
     <item>
       <title>Comenzando con Go</title>
-      <link>http://myblog-965.appspot.com/2013/06/11/comenzando-con-go/</link>
+      <link>http://myblog-965.appspot.com:1313/2013/06/11/comenzando-con-go/</link>
       <pubDate>Tue, 11 Jun 2013 23:19:26 -0300</pubDate>
       
-      <guid>http://myblog-965.appspot.com/2013/06/11/comenzando-con-go/</guid>
+      <guid>http://myblog-965.appspot.com:1313/2013/06/11/comenzando-con-go/</guid>
       <description>
 
 &lt;p&gt;Hola a todos, en este post les vengo a hablar de un lenguaje nuevo, con el que hace un tiempo estoy haciendo algunas cosas, y mientras estoy agarrando experiencia con el mismo, cada vez me gusta mas.&lt;/p&gt;
