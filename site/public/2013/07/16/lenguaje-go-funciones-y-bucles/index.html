@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://myblog-965.appspot.com//stylesheets/shiori.css">
+    <link href='//fonts.googleapis.com/css?family=Montserrat:700,400' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Merriweather:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="shortcut icon" href="http://myblog-965.appspot.com//favicon.ico">
+    <title>Lenguaje Go funciones y bucles | Aprendiendo de Go</title>
+    
+    
+
+  </head>
+  <body>
+    <div class="navbar navbar-inverse navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <div class="navbar-toggle-wrapper visible-xs">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".js-navbar-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          </div>
+          <a href="http://myblog-965.appspot.com/" class="navbar-brand">Aprendiendo de Go</a>
+        </div>
+        <div class="collapse navbar-collapse js-navbar-collapse">
+          <ul class="navbar-nav nav">
+            <li><a href="http://myblog-965.appspot.com/post">Archive</a></li>
+
+          </ul>
+          <ul class="navbar-nav nav navbar-right">
+            <li class="hidden-xs"><iframe src="http://ghbtns.com/github-btn.html?user=Jackgris&repo=myblog&type=watch&count=true&size=large"
+  allowtransparency="true" frameborder="0" scrolling="0" width="170" height="30" style="margin-top: 14px;"></iframe>
+</li>
+
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+
+<div class="row">
+  <div class="col-sm-8">
+    <div class="post-header">
+      <h1 class="post-title-main">Lenguaje Go funciones y bucles</h1>
+      <p class="text-muted">Jul 16, 2013</p>
+
+    </div>
+    <div class="post-content">
+      
+
+<p>Hola a todos, nuevamente otro post de este lenguaje llamado Go!, en este caso vamos a ver un tema fundamental en la programación,
+que es el tema de las funciones, como utilizar y declararlas.</p>
+
+<p><img src="http://myblog-965.appspot.com/2013/07/squishable.jpg?raw=true" alt="Logo de Go" /></p>
+
+<h3 id="primero-y-antes-que-nada-que-es-una-función:fa9fd500cec92ee6126797f6bfb61d24">Primero y antes que nada, que es una función?</h3>
+
+<p>En programación, una función es un grupo de instrucciones con un objetivo en particular y que se ejecuta al ser llamada desde otra función o procedimiento.
+Una función puede llamarse múltiples veces e incluso llamarse a sí misma (función recurrente).
+Las funciones pueden recibir datos desde afuera al ser llamadas a través de los parámetros y deben entregar un resultado.
+Se diferencian de los procedimientos porque estos no devuelven un resultado.
+En general las funciones deben tener un nombre único en el ámbito para poder ser llamadas, un tipo de dato de resultado,
+una lista de parámetros de entrada y su código.
+En muy pocas palabras, un pequeño trozo de código que va a realizar algo, donde uno puede enviarles algunos datos y recibir un resultado de el.</p>
+
+<h4 id="el-siguiente-es-un-ejemplo-de-cómo-podríamos-plasmarlo-en-nuestro-código-fuente:fa9fd500cec92ee6126797f6bfb61d24">El siguiente es un ejemplo de cómo podríamos plasmarlo en nuestro código fuente:</h4>
+
+<pre><code>func printf(str string, args ...interface{}) (int , error) {
+    _, err := fmt.Printf(str, args...)
+    return len(args), err
+}
+
+func main() {
+    count := 1
+    closure := func(msg string) {
+        printf(&quot;%d %s\n&quot;, count, msg)
+        count++
+    }
+    closure(&quot;Un Mensaje&quot;)
+    closure(&quot;Otro Mensaje&quot;)
+}
+</code></pre>
+
+<p>Y ahora un poco de la teoría para ver como es la cosa :D
+Las funciones se declaran con la palabra reservada <code>func</code>, lo que nos devuelve la misma va al final, en este caso para la función <code>printf</code>,
+nos va a devolver <code>(int, error)</code>, lo que nos muestra, que no necesariamente nos puede devolver una cosa, si no que puede ser una lista de cosas,
+en este caso un entero y un objeto <code>error</code>. También podemos notar que al llamar a la función, podemos ignorar lo que nos devuelve o asignarlo a
+diferentes variables, teniendo la opción de usar el guión bajo <code>_</code> para descartar algún valor que no deseemos utilizar, como se ve en la llamada
+a <code>fmt.Printf()</code>.
+Si nosotros queremos declarar una función que utilice una cantidad de argumento  variable podemos usar una interfaz vacía <code>...interface{}</code>
+donde le vamos a poder pasar los argumentos que queramos.
+Como dijimos anteriormente, la función <code>main()</code> va a ser el punto de entrada de nuestro programa, que a diferencia de otros lenguajes, este no toma argumentos.</p>
+
+<p>Tenemos que tener en cuenta algo, que viene del anterior, post, cuando uno declara una variable, fuera de cualquier función,
+esta va a tener un alcance en todo el código del archivo que escribimos, pero si nosotros declaramos variables dentro de una función,
+la misma no se va a poder acceder desde afuera y no vamos a poder usar el valor de la misma. Para eso simplemente debemos utilizar el retorno de la función ;)
+Un ejemplo de esto, es la variable <code>count</code> la cual es únicamente visible dentro de la función <code>main</code> pero no puede ser accedida desde la función <code>printf</code>.</p>
+
+<h4 id="bucles-en-go:fa9fd500cec92ee6126797f6bfb61d24">Bucles en Go!</h4>
+
+<p>Código de ejemplo:</p>
+
+<pre><code>package main
+
+import &quot;fmt&quot;
+
+func main() {
+    loops := 1
+    // bucle while:
+    for loops &gt; 0 {
+        fmt.Printf(&quot;\n Numero de vueltas?\n&quot;)
+        fmt.Scanf(&quot;%d&quot;, &amp;loops)
+        // bucle for
+        for i := 0 ; i &lt; loops ; i++ {
+            fmt.Printf(&quot;%d &quot;, i)
+        }
+    }
+    // bucle infinito
+    for {
+        // Finalizamos el bucle de manera explícita
+        break
+    }
+}
+</code></pre>
+
+<p>Normalmente en los lenguajes de programación derivados de <code>C</code> tenemos tres diferentes tipo de bucles, y cada uno con una sintaxis diferente,
+en cambio en <code>Go</code> para los tres tipo de bucle usamos la misma palabra reservada <code>for</code>, como se puede ver en el código, el tercero es el más sencillo,
+un bucle infinito. Esto quiere decir que el código ahí dentro se repetirá y no va a parar de repetirse hasta que llegue a una sentencia <code>break</code>,
+esto puede ser muy útil, supongamos que simplemente queremos que algo se repita hasta que suceda algo en particular, en ese caso,
+simplemente arrancamos el bucle, y colocamos el break cuando se cumpla esa serie de condiciones que nosotros queremos para finalizar el bucle ;)
+Dentro de un bucle ademas de desear terminarlo puede suceder, que queramos, que al suceder cierta condición, es que queremos que vuelva a arrancar el mismo,
+y no que siga hasta terminarlo, para eso tenemos la sentencia <code>continue</code>
+Los otros dos bucles que podemos armar con for serían los típicos while y el for común como los que podemos encontrar en <code>Java</code>.
+Por ejemplo en el código de mas arriba, el primer for sería los mismo que el típico <code>while</code>, y el segundo lo mismo que el for en <code>Java</code>.
+El primero se repetiría mientras que se cumpla la condición <code>loops &gt; 0</code>, y el segundo hasta que se cumpla la condición <code>i &lt; loops</code></p>
+
+<p>Web Oficial
+<a href="http://golang.org">http://golang.org</a></p>
+
+<p>Ver por lo de la licencia
+<a href="http://golang.org/project">http://golang.org/project</a></p>
+
+<p>Bueno eso es todo por ahora, seguiremos con esta serie de post mas adelante, mi intención con esto se resume a dos cosas,
+que aprendamos juntos un lenguaje muy interesante, y además, dejar plasmada casi una introducción a la programación con un lenguaje nuevo,
+con conceptos bastante interesantes. Y que pare ser un lenguaje compilado, tiene la ventaja de ser muy sencillo y tener muchas características
+en la sintaxis que me recuerda a <code>Python</code>, cosa que me gusta mucho :D Espero que les guste, nos vemos en la próxima.</p>
+
+    </div>
+    <div class="post-footer">
+      <a href="http://myblog-965.appspot.com/post" class="btn btn-primary btn-block btn-lg">View All 3 Articles →</a>
+
+    </div>
+    
+  </div>
+  <div class="col-sm-4">
+    <h3>
+  Author
+</h3>
+
+<p>
+  <div class="media">
+    <img src="http://www.gravatar.com/avatar/eeff3312ae9bffb79eadcc494a80362d?s=100" alt="Gabriel Pozo" class="pull-left">
+    <div class="media-body">
+      <h4 class="media-heading">Gabriel Pozo</h4>
+    </div>
+  </div>
+</p>
+
+<p><a href="https://twitter.com/jackgris2" class="twitter-follow-button" data-show-screen-name="false" data-show-count="true" data-dnt="true" data-size="large">Follow @jackgris2</a></p>
+
+  </div>
+</div>
+      <div class="row footer">
+        <div class="col-sm-12 text-center">
+          &copy; 2015.
+Built with <a href="http://gohugo.io/">Hugo</a> and
+<a href="https://github.com/chibicode/hugo-theme-shiori">Shiori Theme</a>.
+
+        </div>
+      </div>
+    </div>
+    <script src="http://myblog-965.appspot.com/javascripts/shiori.js"></script>
+    
+
+
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+  </body>
+</html>
+

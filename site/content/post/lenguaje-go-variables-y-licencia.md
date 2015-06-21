@@ -1,5 +1,5 @@
 ---
-date: 2013-07-20T09:36:49-03:00
+date: 2013-06-20T09:36:49-03:00
 draft: true
 title: Lenguaje Go, variables y licencia
 ---

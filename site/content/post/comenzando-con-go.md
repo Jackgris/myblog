@@ -1,5 +1,5 @@
 ---
-date: 2013-07-11T23:19:26-03:00
+date: 2013-06-11T23:19:26-03:00
 draft: true
 title: Comenzando con Go
 ---
